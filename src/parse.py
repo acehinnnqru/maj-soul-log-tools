@@ -19,8 +19,8 @@ def get_user_time_result(directory: str):
 
     user_time_result = defaultdict(lambda: defaultdict(list))
     for f in fs:
-        with open(os.path.join(directory, f), "r") as f:
-            data = json.load(f)
+        with open(os.path.join(directory, f), "r") as fobj:
+            data = json.load(fobj)
             user_result, t = review_data(data)
             for user, result in user_result.items():
                 user_time_result[user][t] = result
